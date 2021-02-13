@@ -81,6 +81,12 @@ const _minigamesFromCsv = (lines: string[]): Map<Minigame, RankedEntry> => {
   return entries;
 }
 
+/**
+ * Get a player's personal hiscore including skills, clue scrolls, bosses, minigames
+ * @param username Players username e.g. B0aty, Hey Jase, Lynx Titan
+ * @param gameMode Target Game mode e.g. Normal, Ironman, Ultimate Ironman
+ * @returns Promise of a PersonalHiscore entry
+ */
 const getPlayer = async (username: string, gameMode: GameMode = GameMode.Normal): Promise<PersonalHiscore> => {
   const url = `${BASE_URL}/m=${gameMode}/index_lite.ws?player=${username}`;
 

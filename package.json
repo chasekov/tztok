@@ -1,6 +1,6 @@
 {
   "name": "tztok",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "api wrapper for runescape and osrs with some extra goodies",
   "main": "dist/index.js",    
   "repository": {
