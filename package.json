@@ -1,12 +1,12 @@
 {
   "name": "tztok",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "api wrapper for runescape and osrs with some extra goodies",
-  "main": "dist/index.js",    
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chasekov/tztok.git"
-},
+  },
   "scripts": {
     "prepublish": "npm run build",
     "build": "tsc",
