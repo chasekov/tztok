@@ -4,7 +4,8 @@ import { ClueScroll } from "./clueScroll";
 import { GameMode } from "./gameMode";
 import { TraditionalGame } from "./traditionalGame";
 import { SkillType } from "./skillType";
-import { MinigameType } from "./minigameType";
+
+type MinigameType = Boss | BountyHunter | ClueScroll | TraditionalGame
 
 export {
   Boss,

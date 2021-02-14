@@ -1,10 +1,7 @@
-
 import * as TzTok from "../src/index";
 
 test("Skills Leaderboard should return top 25", async () => {
-  const entries = await TzTok.getSkillLeaderboard(
-    TzTok.SkillType.Overall
-  );
+  const entries = await TzTok.getSkillLeaderboard(TzTok.SkillType.Overall);
 
   // A page should always have 25 items
   expect(entries).toHaveLength(25);
@@ -23,13 +20,11 @@ test("Skills Leaderboard should return top 25", async () => {
 });
 
 test("Skills Leaderboard should work for other skills", async () => {
-  const entries = await TzTok.getSkillLeaderboard(
-    TzTok.SkillType.Prayer
-  );
+  const entries = await TzTok.getSkillLeaderboard(TzTok.SkillType.Prayer);
 
   // A page should always have 25 items
   expect(entries).toHaveLength(25);
-  
+
   expect(entries[0].username).toEqual("S T E N");
   expect(entries[0].level).toEqual(99);
   expect(entries[0].experience).toEqual(200000000);
@@ -41,16 +36,25 @@ test("Skills Leaderboard should work for other skills", async () => {
 
 test("Skills Leaderboard should work for other game modes", async () => {
   const entries = await TzTok.getSkillLeaderboard(
-    TzTok.SkillType.Overall, 0, TzTok.GameMode.DeadmanMode
+    TzTok.SkillType.Overall,
+    0,
+    TzTok.GameMode.DeadmanMode
   );
 
   // A page should always have 25 items
   expect(entries).toHaveLength(25);
 });
 
-test("Minigame Leaderboard should return top 25", async () => {
+test("Minigame Leaderboard should return top 25 for bosses", async () => {
+  const entries = await TzTok.getMinigameLeaderboard(TzTok.Boss.TzTokJad);
+
+  // A page should always have 25 items
+  expect(entries).toHaveLength(25);
+});
+
+test("Minigame Leaderboard should return top 25 for clues", async () => {
   const entries = await TzTok.getMinigameLeaderboard(
-    TzTok.MinigameType.TzTokJad
+    TzTok.ClueScroll.ClueScrollsAll
   );
 
   // A page should always have 25 items

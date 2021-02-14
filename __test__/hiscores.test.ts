@@ -11,4 +11,3 @@ test("getPlayer should work with a space in name", async () => {
 test("getPlayer should work with Ironman Game Mode", async () => {
   const player = await TzTok.getPlayer("dids", TzTok.GameMode.Ironman);
 });
-
