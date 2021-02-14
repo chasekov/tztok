@@ -1,2 +1,5 @@
-export * as Leaderboard from './osrs/leaderboard';
-export * as Hiscore from './osrs/hiscore';
+export * from './osrs/leaderboard';
+export * from './osrs/hiscore';
+export * from './osrs/game';
+
+export * from './enums';

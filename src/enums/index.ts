@@ -2,14 +2,16 @@ import { Boss } from "./boss";
 import { BountyHunter } from "./bountyHunter";
 import { ClueScroll } from "./clueScroll";
 import { GameMode } from "./gameMode";
-import { Minigame } from "./minigame";
-import { Skill } from "./skill";
+import { TraditionalGame } from "./traditionalGame";
+import { SkillType } from "./skillType";
+import { MinigameType } from "./minigameType";
 
 export {
   Boss,
   BountyHunter,
   ClueScroll,
   GameMode,
-  Minigame,
-  Skill
+  TraditionalGame,
+  SkillType,
+  MinigameType
 }

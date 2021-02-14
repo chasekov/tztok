@@ -2,9 +2,9 @@
 import * as cheerio from "cheerio";
 
 // Local Imports
-import { BASE_URL, NEWLINE_REGEX, COMMA_REGEX } from "../constants";
+import { BASE_URL, NEWLINE_REGEX, COMMA_REGEX, SPACE_REGEX } from "../constants";
 
-import { Skill, Minigame, GameMode} from "../enums";
+import { SkillType, MinigameType, GameMode } from "../enums";
 import { LeaderboardSkill, LeaderboardMinigame } from "../structs";
 
 // Local instances
@@ -18,7 +18,7 @@ import web from '../web';
  * @returns Promised array of Leaderboard Skill Entries
  */
 const getSkill = async (
-  skillType: Skill,
+  skillType: SkillType,
   page: number = 0,
   gameMode: GameMode = GameMode.Normal
 ): Promise<LeaderboardSkill[]> => {
@@ -37,7 +37,7 @@ const getSkill = async (
       );
 
       const rank: number = parseFloat(cleanEntries[0].replace(COMMA_REGEX, ""));
-      const username: string = cleanEntries[1].replace("�", " ");
+      const username: string = cleanEntries[1].replace(SPACE_REGEX, " ");
       const level: number = parseFloat(
         cleanEntries[2].replace(COMMA_REGEX, "")
       );
@@ -65,7 +65,7 @@ const getSkill = async (
  * @returns Promised array of Leaderboard Minigame Entries
  */
 const getMinigame = async (
-  minigameType: Minigame,
+  minigameType: MinigameType,
   page: number = 0,
   gameMode: GameMode = GameMode.Normal
 ): Promise<LeaderboardMinigame[]> => {
@@ -84,7 +84,7 @@ const getMinigame = async (
       });
 
       const rank: number = parseFloat(cleanEntries[0].replace(COMMA_REGEX, ""));
-      const username: string = cleanEntries[1];
+      const username: string = cleanEntries[1].replace(SPACE_REGEX, "");
       const score: number = parseFloat(
         cleanEntries[2].replace(COMMA_REGEX, "")
       );
@@ -101,6 +101,6 @@ const getMinigame = async (
 };
 
 export {
-  getSkill,
-  getMinigame
+  getSkill as getSkillLeaderboard,
+  getMinigame as getMinigameLeaderboard
 }

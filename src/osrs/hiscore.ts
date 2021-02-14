@@ -1,17 +1,17 @@
 // Local instances
-import web from '../web';
+import axios from 'axios';
 
 import { BASE_URL } from '../constants';
-import { Boss, BountyHunter, ClueScroll, GameMode, Minigame, Skill} from '../enums';
+import { GameMode, SkillType, BountyHunter, ClueScroll, Boss, TraditionalGame} from '../enums';
 import { SkillEntry, RankedEntry, PersonalHiscore } from '../structs';
 
-const _skillsFromCsv = (lines: string[]): Map<Skill, SkillEntry> => {
-  const entries: Map<Skill, SkillEntry> = new Map();
+const _skillsFromCsv = (lines: string[]): Map<SkillType, SkillEntry> => {
+  const entries: Map<SkillType, SkillEntry> = new Map();
   
   lines.forEach((line, index: number) => { 
     const attribute = line.split(',');
 
-    entries.set(Object.values(Skill)[index] as Skill, {
+    entries.set(Object.values(SkillType)[index] as SkillType, {
       rank: parseFloat(attribute[0]),
       level: parseFloat(attribute[1]),
       experience: parseFloat(attribute[2])
@@ -66,13 +66,13 @@ const _bossesFromCsv = (lines: string[]): Map<Boss, RankedEntry> => {
   return entries;
 }
 
-const _minigamesFromCsv = (lines: string[]): Map<Minigame, RankedEntry> => {
-  const entries: Map<Minigame, RankedEntry> = new Map();
+const _minigamesFromCsv = (lines: string[]): Map<TraditionalGame, RankedEntry> => {
+  const entries: Map<TraditionalGame, RankedEntry> = new Map();
   
   lines.forEach((line, index: number) => { 
     const attribute = line.split(',');
 
-    entries.set(Object.values(Minigame)[index] as Minigame, {
+    entries.set(Object.values(TraditionalGame)[index] as TraditionalGame, {
       rank: parseFloat(attribute[0]),
       score: parseFloat(attribute[1])
     });
@@ -90,7 +90,7 @@ const _minigamesFromCsv = (lines: string[]): Map<Minigame, RankedEntry> => {
 const getPlayer = async (username: string, gameMode: GameMode = GameMode.Normal): Promise<PersonalHiscore> => {
   const url = `${BASE_URL}/m=${gameMode}/index_lite.ws?player=${username}`;
 
-  const { data } = await web.get(url);
+  const { data } = await axios.get(url);
   const lines: string[] = data.split('\n');
 
   return {
