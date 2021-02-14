@@ -1,5 +1,5 @@
-export * from './osrs/leaderboard';
-export * from './osrs/hiscore';
-export * from './osrs/game';
+export * from "./osrs/leaderboard";
+export * from "./osrs/hiscore";
+export * from "./osrs/game";
 
-export * from './enums';
+export * from "./enums";

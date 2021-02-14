@@ -9,5 +9,5 @@ export {
   LeaderboardSkill,
   PersonalHiscore,
   RankedEntry,
-  SkillEntry
-}
+  SkillEntry,
+};

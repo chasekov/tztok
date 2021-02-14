@@ -1,4 +1,11 @@
-import { Boss, BountyHunter, ClueScroll, GameMode, TraditionalGame, SkillType } from "../enums";
+import {
+  Boss,
+  BountyHunter,
+  ClueScroll,
+  GameMode,
+  TraditionalGame,
+  SkillType,
+} from "../enums";
 
 import { RankedEntry } from "./rankedEntry";
 import { SkillEntry } from "./skillEntry";

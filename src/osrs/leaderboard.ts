@@ -2,13 +2,18 @@
 import * as cheerio from "cheerio";
 
 // Local Imports
-import { BASE_URL, NEWLINE_REGEX, COMMA_REGEX, SPACE_REGEX } from "../constants";
+import {
+  BASE_URL,
+  NEWLINE_REGEX,
+  COMMA_REGEX,
+  SPACE_REGEX,
+} from "../constants";
 
 import { SkillType, MinigameType, GameMode } from "../enums";
 import { LeaderboardSkill, LeaderboardMinigame } from "../structs";
 
 // Local instances
-import web from '../web';
+import web from "../web";
 
 /**
  *
@@ -102,5 +107,5 @@ const getMinigame = async (
 
 export {
   getSkill as getSkillLeaderboard,
-  getMinigame as getMinigameLeaderboard
-}
+  getMinigame as getMinigameLeaderboard,
+};

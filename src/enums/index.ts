@@ -5,7 +5,7 @@ import { GameMode } from "./gameMode";
 import { TraditionalGame } from "./traditionalGame";
 import { SkillType } from "./skillType";
 
-type MinigameType = Boss | BountyHunter | ClueScroll | TraditionalGame
+type MinigameType = Boss | BountyHunter | ClueScroll | TraditionalGame;
 
 export {
   Boss,
@@ -14,5 +14,5 @@ export {
   GameMode,
   TraditionalGame,
   SkillType,
-  MinigameType
-}
+  MinigameType,
+};

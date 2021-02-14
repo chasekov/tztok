@@ -1,5 +1,4 @@
 export enum ClueScroll {
-  
   ClueScrollsAll = 3,
   ClueScrollsBeginner = 4,
   ClueScrollsEasy = 5,
@@ -7,5 +6,4 @@ export enum ClueScroll {
   ClueScrollsHard = 7,
   ClueScrollsElite = 8,
   ClueScrollsMaster = 9,
-
 }

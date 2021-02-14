@@ -9,7 +9,9 @@ const getPlayerCount = async (): Promise<number> => {
     const groups = data.match(PLAYER_COUNT_REGEX).groups;
 
     if (!groups || !groups.playerCount) {
-      throw new Error(`Unable to find player count in html at ${OLDSCHOOL_URL}`);
+      throw new Error(
+        `Unable to find player count in html at ${OLDSCHOOL_URL}`
+      );
     }
 
     const playerCount = parseInt(groups.playerCount.replace(/,/g, ""), 10);
